@@ -7,10 +7,33 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct PokemonRowView: View {
+    let name: String
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        HStack (alignment: .center){
+            Text(name.capitalized)
+
+        }
+    }
+}
+
+struct ContentView: View {
+    
+    @ObservedObject var pokedexViewModel = PokedexViewModel()
+    
+    var body: some View {
+        NavigationView{
+            List {
+                ForEach(self.pokedexViewModel.pokemons, id: \.self){pokemon in
+                    NavigationLink(destination: PokemonView(url: pokemon.url)){
+                        PokemonRowView(name: pokemon.name)
+                        
+                    }
+                }
+            }.navigationBarTitle(Text("Pokedex"))
+        }.onAppear{
+            self.pokedexViewModel.getPokemons()
+        }
     }
 }
 
