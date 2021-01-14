@@ -9,7 +9,7 @@ import Foundation
 
 class PokemonViewModel: ObservableObject {
     
-    @Published var pokemon: PokemonResponse?
+    @Published var pokemon = PokemonResponse()
     
     func getPokemon(urlString: String){
             

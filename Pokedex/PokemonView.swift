@@ -15,9 +15,9 @@ struct PokemonView: View {
     var body: some View {
         NavigationView {
             VStack{
-                Text("Weight: \(self.pokemonViewModel.pokemon?.weight ?? 0)")
-                Text("Height: \(self.pokemonViewModel.pokemon?.height ?? 0)")
-            }
+                Text("Weight: \(self.pokemonViewModel.pokemon.weight)")
+                Text("Height: \(self.pokemonViewModel.pokemon.height)")
+            }.navigationBarTitle(Text(self.pokemonViewModel.pokemon.name.capitalized))
         }.onAppear{
             self.pokemonViewModel.getPokemon(urlString: url)
         

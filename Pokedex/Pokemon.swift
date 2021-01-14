@@ -17,8 +17,7 @@ struct Pokemon: Decodable, Hashable {
 }
 
 struct PokemonResponse: Decodable {
-    let name: String
-    
-    let weight: Int
-    let height: Int
+    var name: String = ""
+    var weight: Int = 0
+    var height: Int = 0
 }
