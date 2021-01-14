@@ -12,8 +12,9 @@ struct PokedexResponse: Decodable {
 }
 
 struct Pokemon: Decodable, Hashable {
-    let name: String
-    let url: String
+   
+    var name: String = ""
+    var url: String = ""
 }
 
 struct PokemonResponse: Decodable {
